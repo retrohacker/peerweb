@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1827"
+   height="1290"
+   viewBox="0 0 1827 1290"
+   id="svg4451"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="server.svg">
+  <metadata
+     id="metadata4459">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4457" />
+  <sodipodi:namedview
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1582"
+     inkscape:window-height="1599"
+     id="namedview4455"
+     showgrid="false"
+     showborder="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="2.9799499"
+     inkscape:cx="916.24579"
+     inkscape:cy="1120.2054"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4451" />
+  <path
+     d="M 1681.5112,1297.8045 H 657.51112 v -128 H 1681.5112 v 128 z m 0,-511.99932 H 657.51112 V 657.80523 H 1681.5112 V 785.80518 z M 113.51112,1233.8045 q 0,-40 28,-68 28,-28 68,-28 40,0 68,28 28,28 28,68 0,40 -28,68 -28,28 -68,28 -40,0 -68,-28 -28,-28 -28,-68 z M 1681.5112,273.80523 H 657.51112 v -128 H 1681.5112 v 128 z M 113.51112,721.80518 q 0,-39.99995 28,-67.99995 28,-28 68,-28 40,0 68,28 28,28 28,67.99995 0,40 -28,68 -28,28 -68,28 -40,0 -68,-28 -28,-28 -28,-68 z m 0,-511.99995 q 0,-40 28,-68 28,-28 68,-28 40,0 68,28 28,28 28,68 0,40 -28,68 -28,28 -68,28 -40,0 -68,-28 -28,-28 -28,-68 z M 17.511123,1041.8045 v 384 H 1809.5112 v -384 H 17.511123 z m 0,-511.99927 V 913.80518 H 1809.5112 V 529.80523 H 17.511123 z m 0,-511.999903 V 401.80523 H 1809.5112 V 17.805327 H 17.511123 z"
+     id="path4453"
+     style="fill:none;stroke:#2d4059;stroke-width:35;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     inkscape:connector-curvature="0" />
+</svg>

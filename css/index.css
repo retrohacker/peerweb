@@ -1,0 +1,208 @@
+body {
+  background-color: #222831;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.navbar {
+  color: #EEEEEE;
+  padding: 10px;
+  font-size: 25px;
+}
+
+.brand {
+  font-size: 27px;
+}
+
+.well {
+  background-color: #EEEEEE;
+  padding: 50px 0;
+  text-align: center;
+  border-width: 5px 0;
+  border-color: #FF5722;
+  border-style: solid;
+  overflow: hidden;
+}
+
+.well img {
+  width: 300px;
+  animation: loadImage 2s, bounce 3s 2s infinite linear;
+  position: relative;
+  animation-fill-mode: backwards;
+}
+
+@keyframes loadImage {
+  from {
+    transform: rotate(-180deg);
+    opacity: 0;
+    left: 100%;
+  }
+
+  to {
+    transform: rotate(0);
+    opacity; 1;
+    left: 0;
+  }
+}
+
+@keyframes bounce {
+
+  0% {
+    top: 0;
+  }
+
+  20% {
+    top: -10px;
+  }
+
+  40% {
+    top: 0px;
+  }
+
+  60% {
+    top: 10px
+  }
+
+  100% {
+    top: 0;
+  }
+
+}
+
+@keyframes loadText {
+  from {
+    opacity: 0;
+    left: 100%;
+  }
+
+  to {
+    opacity; 1;
+    left: 0;
+  }
+}
+
+.well .logo-title {
+  font-size: 50px;
+  margin: 15px;
+  position: relative;
+  animation-name: loadText;
+  animation-duration: 1.75s;
+  animation-delay: .25s;
+  animation-fill-mode: backwards;
+}
+
+.well .logo-subtitle {
+  font-size: 25px;
+  position: relative;
+  animation-name: loadText;
+  animation-duration: 1.5s;
+  animation-delay: .5s;
+  animation-fill-mode: backwards;
+}
+
+.well .download {
+  background-color: #FF5722;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px #DF3702;
+  margin-top: 30px;
+  text-align: left;
+  text-decoration: none;
+  color: #222831;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.well .download:hover {
+  box-shadow: 3px 3px 5px #DF3702;
+  margin-top: 30px;
+  text-align: left;
+  color: #222831;
+}
+
+.download-flex {
+  display: flex;
+  align-items: center;
+}
+
+.download-icon {
+  font-size: 40px;
+  padding: 0 20px;
+  margin-right: 20px;
+  border-right: 2px solid #222831;
+  transform: scaleY(-1);
+}
+
+.download-title {
+  font-size: 25px;
+}
+
+.download-subtitle {
+  font-size: 20px;
+  font-style: italic;
+}
+
+.download .os {
+  display: inline;
+
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.column {
+  min-width: 300px;
+  flex-grow: 1;
+  width: 0;
+  background-size: 90% 90%;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  text-shadow: 0 0 5px black;
+  padding-left: 10px;
+  border-bottom: 5px solid #FF5722;
+}
+
+.icon-globe {
+  background-image: url('../imgs/globe.svg');
+  background-position: left bottom; !important
+}
+
+.icon-server {
+  background-image: url('../imgs/server.svg');
+}
+
+.icon-people {
+  background-image: url('../imgs/people.svg');
+}
+
+.column .title {
+  font-size: 40px;
+  color: #EEEEEE;
+  border-bottom: 3px solid #FF5722;
+  display: inline-block;
+  padding: 40px 30px 0 5px;
+  margin-bottom: 10px;
+}
+
+.column .subtitle {
+  font-size: 30px;
+  color: #EEEEEE;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.column .paragraph {
+  font-size: 25px;
+  max-width: 600px;
+  color: #EEEEEE;
+  margin: 15px;
+}
