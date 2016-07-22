@@ -49,7 +49,7 @@ ipcMain.on('global-status', function updateStatus (event, arg) {
 
 // peerProtocolHandler resolves a peer:// request against a torrent, returning
 // the requested file as the result
-function peerProtocolHandler (request, callback) {
+function peerProtocolHandler (request, callback) { // eslint-disable-line consistent-return
   console.log('Starting download...') // eslint-disable-line no-console
   // Grab the URL as an array, split around '/', and removing the prefixed
   // protocol. This allows us to break the path apart further down
@@ -65,8 +65,8 @@ function peerProtocolHandler (request, callback) {
   // the requested torrent, otherwise return the requested file
   let requestedFile = 'index.html'
 
-  if(url.length !== 1 && url.slice(1)[0].length > 0) {
-    requestedFile = path.join.apply(null,url.slice(1))
+  if (url.length !== 1 && url.slice(1)[0].length > 0) {
+    requestedFile = path.join.apply(null, url.slice(1))
   }
 
   // We want webtorrent to use the trackers from our config. We also create a
@@ -79,12 +79,12 @@ function peerProtocolHandler (request, callback) {
   // Ensure the torrent hash is valid before we pass it on to webtorrent
   try {
     parseTorrent(hash)
-  } catch(e) {
+  } catch (e) {
     return callback(e)
   }
 
   // Lets kick off the download through webtorrent
-  client.add(hash, opts, function loaded (torrent) {
+  client.add(hash, opts, function loaded (torrent) { // eslint-disable-line consistent-return
     console.log('Download started...') // eslint-disable-line no-console
     // Search the torrent for the requestedFile, if not found, return null
     let returnFile = null
@@ -100,23 +100,23 @@ function peerProtocolHandler (request, callback) {
     }
 
     // Tell electron we didn't find the file
-    if(returnFile == null) {
-      console.log('File not found, returning null')
+    if (returnFile == null) {
+      console.log('File not found, returning null')// eslint-disable-line no-console
       return callback(404)
     }
 
     // Wait for the file to become available, downloading from the network at
     // highest priority. This ensures we don't return a path to a file that
     // hasn't finished downloading yet.
-    returnFile.getBuffer(function(e) {
+    returnFile.getBuffer(function getBuffer (e) {
       // We don't actually care about the buffer, we only care if the file
       // was downloaded
-      if(e) return callback(e)
+      if (e) return callback(e)
       // Generate the path to the file on the local fs
-      file = path.join(__dirname, 'downloads', hash, returnFile.path)
+      const file = path.join(__dirname, 'downloads', hash, returnFile.path)
 
       // Give the file back to electron
-      console.log(`Returning: ${file}`)
+      console.log(`Returning: ${file}`)// eslint-disable-line no-console
       return callback({ path: file })
     })
   })

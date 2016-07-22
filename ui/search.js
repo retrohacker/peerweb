@@ -11,6 +11,7 @@
 // this application
 // eslint-disable-next-line prefer-const, no-use-before-define, no-var
 var peerWeb = peerWeb || {}
+// eslint-disable-next-line prefer-const, no-use-before-define, no-var
 var url = require('url')
 
 // Scope all functions exposed by this file to search
@@ -19,7 +20,7 @@ peerWeb.search = peerWeb.search || {}
 ;(function scope () {
   // Scrub the url to make it electron friendly
   peerWeb.search.scrubUrl = function scrubUrl (addr) {
-    if(url.parse(addr).path == null) {
+    if (url.parse(addr).path == null) {
       return `${addr}/`
     }
     return addr
