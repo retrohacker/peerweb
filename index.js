@@ -172,12 +172,15 @@ function configureElectron () {
     }
 
     // peer:// protocol has been registered
-    const opts = {
-      frame: false
-    }
+    const opts = {}
 
     // Start the application
     const mainWindow = new electron.BrowserWindow(opts)
+
+    // Hide the menubar
+    mainWindow.setMenu(null)
+
+    // Load the UI
     mainWindow.loadURL(`file://${path.join(__dirname, 'ui', 'index.html')}`)
   })
 }
