@@ -1,7 +1,7 @@
 .SILENT:
 help:
 	echo
-	echo "NodeSource Metrics Server Make commands"
+	echo "PeerWeb Make commands"
 	echo
 	echo "  Commands: "
 	echo
