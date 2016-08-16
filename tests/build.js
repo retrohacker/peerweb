@@ -9,6 +9,7 @@
 
 /* Require in deps */
 const electronPackager = require('electron-packager')
+const os = require('os')
 const path = require('path')
 const rimraf = require('rimraf')
 const mkdirp = require('mkdirp')
@@ -97,8 +98,26 @@ module.exports.getPath = function getPath (cb) {
           throw new Error(`electron-packager built ${paths.length} binaries`)
         }
 
-        // Cache the path to our new binary
-        cachedBuild = path.join(paths[0], buildName)
+        // Cache the path to our new binary based on the OS we are running
+        switch (os.platform()) {
+          case 'darwin':
+            cachedBuild = path.join(paths[0],
+              `${buildName}.app`,
+              'Contents',
+              'MacOS',
+              buildName)
+            break
+          case 'win32':
+            cachedBuild = path.join(paths[0], `${buildName}.exe`)
+            break
+          case 'linux':
+            cachedBuild = path.join(paths[0], buildName)
+            break
+          default:
+            // We don't build for this OS
+            throw new Error(`Unsupported OS: ${os.platform()}`)
+        }
+
         return cb(null, cachedBuild)
       })
     })
