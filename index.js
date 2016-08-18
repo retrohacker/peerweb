@@ -41,7 +41,8 @@ const request = require('request')
 const temp = require('temp')
 temp.track()
 
-// fs will allow us to write to our temporary file
+// fs will allow us to write to our temporary file and load torrents from a
+// previous session
 const fs = require('fs')
 
 /* End Dependencies */
@@ -90,7 +91,7 @@ function peerProtocolHandler (req, callback) {
   // We create a directory using the torrent's hash and have webtorrent
   // download the website's contents there
   const opts = {
-    path: path.join(__dirname, 'downloads', hash)
+    path: path.join(__dirname, config.downloadDir, hash)
   }
 
   // Ensure the torrent hash is valid before we pass it on to webtorrent, if it
@@ -197,7 +198,10 @@ function peerProtocolHandler (req, callback) {
       // was downloaded
       if (e) return callback(e)
       // Generate the path to the file on the local fs
-      const file = path.join(__dirname, 'downloads', hash, returnFile.path)
+      const file = path.join(__dirname,
+        config.downloadDir,
+        hash,
+        returnFile.path)
 
       // Give the file back to electron
       console.log(`Returning: ${file}`)// eslint-disable-line no-console
@@ -218,10 +222,35 @@ function registerTorrentProtocol (localElectron, cb) {
                               return cb(e)
                             }
                             // Don't treat our new protocol like http
-                            electron.protocol.registerStandardSchemes([config.protocol])
+                            electron
+                              .protocol
+                              .registerStandardSchemes([config.protocol])
                             // Done setting up our new protocol
                             return cb()
                           })
+}
+
+// Begin seeding torrents from previous sessions
+function restartTorrents (cb) {
+  const dir = path.join(__dirname, config.downloadDir)
+  fs.readdir(dir, function reloadTorrents (e, torrents) {
+    if (e) return cb(e)
+    // Each folder in that directory is a torrent hash, re-add them
+    return torrents.forEach(function reloadTorrent (infoHash) {
+      try {
+        // Try parsing the torrent first to keep webtorrent from throwing in
+        // async land
+        parseTorrent(infoHash)
+        client.add(infoHash,
+          { path: path.join(__dirname, config.downloadDir, infoHash) })
+      } catch (exception) {
+        // eslint-disable-next-line no-console
+        console.error(`Unable to re-add torrent: ${infoHash}`)
+        // eslint-disable-next-line no-console
+        console.error(exception)
+      }
+    })
+  })
 }
 
 // configureElectron registers the custom protocol with or electron app
@@ -240,6 +269,11 @@ function configureElectron () {
     // Start the application
     const mainWindow = new electron.BrowserWindow(opts)
     mainWindow.loadURL(`file://${path.join(__dirname, 'ui', 'index.html')}`)
+    // Let's resume all the torrents from a previous session. No need for a
+    // callback here since we do this after the UI has loaded and we don't take
+    // any action when this completes. Just log the error if there is one.
+    // eslint-disable-next-line no-console
+    restartTorrents(console.error)
   })
 }
 

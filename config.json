@@ -1,4 +1,5 @@
 {
   "--comment--" : "refer to index.js for comments",
-  "protocol" : "peer"
+  "protocol" : "peer",
+  "downloadDir": "downloads"
 }
