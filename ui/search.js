@@ -19,7 +19,13 @@ peerWeb.search = peerWeb.search || {}
 
 ;(function scope () {
   // Scrub the url to make it electron friendly
+  /*eslint-disable no-param-reassign*/
   peerWeb.search.scrubUrl = function scrubUrl (addr) {
+    // Check if any valid protocol present
+    // TODO:Improve Scrubber Logic
+    if (!/\w+:\/\//.test(addr)) {
+      addr = `https://${addr}`
+    }
     if (url.parse(addr).path == null) {
       return `${addr}/`
     }
