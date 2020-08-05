@@ -4,7 +4,6 @@
   <br>
   PeerWeb Browser
 </h1>
-<h2 align='center'>Coming Soon!<br><br></h2>
 
 
 ### Project Deprectated
