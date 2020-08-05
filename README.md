@@ -6,14 +6,7 @@
 </h1>
 <h2 align='center'>Coming Soon!<br><br></h2>
 
-### Donate
 
-Help fund this project with BitCoin
+### Project Deprectated
 
-BTC: 1EcF3agZoSa9bzj69Tjvj8zLE4MZddQ7m3
-
-### Social
-
-Join us on IRC: #peerweb on Freenode
-
-Follow us on twitter: twitter.com/peerwebapp
+This project hasn't been maintained in ~4 years (at the time of this commit)
